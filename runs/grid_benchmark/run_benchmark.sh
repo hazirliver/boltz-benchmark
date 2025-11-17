@@ -1,17 +1,3 @@
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-
-sudo apt-get install python3-dev
-
-curl -LsSf https://astral.sh/uv/install.sh | sh
-source $HOME/.local/bin/env
-
-git clone https://github.com/hazirliver/boltz-benchmark.git
-cd boltz-benchmark
-cd runs/
-mkdir grid_benchmark **## TODO: REMOVE**
-cd grid_benchmark/
 export ROOT_DIR="$(pwd)"
 
 
@@ -21,14 +7,12 @@ mkdir boltz_nim
 mkdir data/{small_molecules,msa} -p 
 mkdir results
 
+cp run_boltz2_vanilla.py ./boltz_vanila
+cp run_boltz2_nim ./boltz_nim
+cp run_boltz2_batch.py ./boltz_screen
 
-cp boltz_screen/examples/screen/* ./data/small_molecules/
-cd data/small_molecules
-for f in ./*.yaml; do sed -i "/^  - protein:$/,/^  - ligand:/{/^[[:space:]]*sequence:/a\\
-      msa: '${ROOT_DIR}/data/msa/fold_cma1_p23946_unpaired_msa_chains_a.a3m'
-}" "$f"; done
 
-cd ../../boltz_vanilla/
+cd boltz_vanilla/
 uv venv -p 3.12
 source .venv/bin/activate
 uv pip install -e .[cuda]
