@@ -1,0 +1,12 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: MLLLPLPLLLFLLCSRAEAGEIIGGTECKPHSRPYMAYLEIVTSNGPSKFCGGFLIRRNFVLTAAHCAGRSITVTLGAHNITEEEDTWQKLEVIKQFRHPKYNTSTLHHDIMLLKLKEKASLTLAVGTLPFPSQFNFVPPGRMCRVAGWGRTGVLKPGSDTLQEVKLRLMDPQACSHFRDFDHNLQLCVGNPRKTKSAFKGDSGGPLLCAGVAQGIVSYGRSDAKPPAVFTRISHYRPWINQILQAN
+      msa: '/home/asokolov/Projects/boltz-benchmark/runs/grid_benchmark/data/msa/fold_cma1_p23946_unpaired_msa_chains_a.a3m'
+  - ligand:
+      id: B
+      smiles: 'FC(F)(F)c1c(ccc(c1)-c2ccncc2)NS(=O)(=O)c3sc4c(c3C)cc(cc4)F'
+properties:
+  - affinity:
+      binder: B
